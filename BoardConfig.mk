@@ -46,7 +46,6 @@ TARGET_KMODULES := true
 # Assert
 TARGET_OTA_ASSERT_DEVICE := HT16
 
-#COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 # Disable memcpy opt (for audio libraries)
@@ -86,10 +85,7 @@ BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/Homtom/HT16/bluetooth
 
 # Offline charging
-BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/BOOT/BOOT/boot/boot_mode
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
-BOARD_CHARGER_ENABLE_SUSPEND := true
-BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
@@ -124,5 +120,7 @@ BOARD_SEPOLICY_DIRS := \
 POLICYVERS := 29
 
 BLOCK_BASED_OTA := false
-TARGET_LDPRELOAD += libxlog.so:libmtk_symbols.so:libmtk_shyms.so
+TARGET_LDPRELOAD += libxlog.so:libmtk_symbols.so
 
+# Seccomp filter
+BOARD_SECCOMP_POLICY += device/Homtom/HT16/seccomp
