@@ -1,0 +1,1 @@
+allow rild nvram_prop:file r_file_perms;
